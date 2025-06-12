@@ -1,20 +1,3 @@
-// import { Link } from 'react-router-dom';
-
-// export default function Header() {
-//   return (
-//     <header>
-//       ОБЛАСНИЙ АРХІВ ФАНТАСТИЧНОЇ ОБЛАСТІ
-//       <div className="top-buttons">
-//         <Link to="/" className="top-buttons">Новини</Link>
-//         <Link to="/online_archive" className="top-buttons">Онлайн архів</Link>
-//         <Link to="/contacts" className="top-buttons">Контакти та графік роботи</Link>
-//         <Link to="/registration" className="top-buttons">Зареєструвати прихід</Link>
-//       </div>
-//     </header>
-//   );
-// }
-
-
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";

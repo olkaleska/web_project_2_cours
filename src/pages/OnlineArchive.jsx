@@ -5,7 +5,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 
-// Діапазон років — по 10
 
 const years = Array.from({ length: 50 }, (_, i) => 1600 + i * 10);
 
@@ -26,31 +25,6 @@ const NavLink = styled.a`
   border: ${(props) => (props.primary ? "none" : "1px solid #3e2c13")};
   cursor: pointer;
 `;
-
-// const SearchBar = styled.div`
-//   margin: 60px;
-//   display: flex;
-//   align-items: center;
-//   gap: 10px;
-//   width: 20%;
-// `;
-
-// const SearchInput = styled.input`
-//   flex: 1;
-//   padding: 10px;
-//   border: none;
-//   border-radius: 20px;
-//   background-color: #a18a6b;
-//   color: #2c1d0d;
-//   font-size: 18px;
-// `;
-
-// const SearchButton = styled.button`
-//   background: none;
-//   border: none;
-//   font-size: 24px;
-//   cursor: pointer;
-// `;
 
 const MainSection = styled.div`
   display: flex;
@@ -76,17 +50,6 @@ const YearButton = styled.button`
   font-size: 20px;
   cursor: pointer;
 `;
-
-// const Map = styled.div`
-//   flex: 1;
-//   background-color: #3a2a16;
-//   color: white;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   font-size: 20px;
-//   height: 300px;
-// `;
 
 const Content = styled.div`
   display: flex;

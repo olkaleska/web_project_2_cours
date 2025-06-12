@@ -6,3 +6,15 @@ body {
     padding: 0;
   }
   
+  .container.grid-4-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  

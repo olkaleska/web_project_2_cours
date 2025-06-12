@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+const SectionWrapper = styled.section`
+  background-color: #c2a37e; /* трохи світліше/ширше відтінок фону */
+  padding: 60px 0 80px;
+`;
 
 const FormContainer = styled.div`
   background-color: #9b8364;
@@ -14,26 +20,33 @@ const FormContainer = styled.div`
 `;
 
 const FormRow = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
   align-items: center;
   margin-bottom: 18px;
+  column-gap: 12px;
 
   label {
-    width: 180px;
     font-weight: bold;
     color: #2c1d0d;
+    justify-self: end;
   }
 
-  input {
-    flex: 1;
+  input, select {
     padding: 4px;
     background: none;
     border: none;
     border-bottom: 2px solid black;
     font-size: 16px;
     color: #2c1d0d;
+    width: 100%;
+  }
+
+  button {
+    white-space: nowrap;
   }
 `;
+
 
 const SearchButton = styled.button`
   margin-left: 10px;
@@ -96,6 +109,16 @@ const Registration = () => {
     confirm: false,
   });
 
+  const [archives, setArchives] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/archives")
+      .then((res) => setArchives(res.data))
+      .catch((err) => console.error("Помилка завантаження архівів:", err));
+  }, []);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -106,11 +129,20 @@ const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 
+
     axios
       .post("http://localhost:3001/registrations", formData)
       .then(() => {
         alert("Реєстрацію збережено!");
+        setFormData({
+          name: "",
+          date: "",
+          time: "",
+          books: "",
+          email: "",
+          confirm: false,
+        });
+        navigate("/online-archive");
       })
       .catch((error) => {
         console.error("Помилка при збереженні:", error);
@@ -118,34 +150,82 @@ const Registration = () => {
       });
   };
 
+  const handleFindBookClick = () => {
+    navigate("../archive");
+  };
+
   return (
     <>
       <Header />
+      <SectionWrapper>
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <FormRow>
             <label>ПІБ</label>
-            <input type="text" name="name" onChange={handleChange} />
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
           </FormRow>
           <FormRow>
             <label>Дата приходу</label>
-            <input type="date" name="date" onChange={handleChange} />
+            <input
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              required
+            />
           </FormRow>
           <FormRow>
             <label>Час приходу</label>
-            <input type="time" name="time" onChange={handleChange} />
+            <input
+              type="time"
+              name="time"
+              value={formData.time}
+              onChange={handleChange}
+              required
+            />
           </FormRow>
           <FormRow>
             <label>Потрібні книги</label>
-            <input type="text" name="books" onChange={handleChange} />
-            <SearchButton type="button">Знайти книгу</SearchButton>
+            <select
+              name="books"
+              value={formData.books}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Оберіть архів</option>
+              {archives.map((archive) => (
+                <option key={archive.id} value={archive.title}>
+                  {archive.title}
+                </option>
+              ))}
+            </select>
+            <SearchButton type="button" onClick={handleFindBookClick}>
+              Знайти книгу
+            </SearchButton>
           </FormRow>
           <FormRow>
             <label>Email</label>
-            <input type="email" name="email" onChange={handleChange} />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
           </FormRow>
           <CheckboxRow>
-            <input type="checkbox" name="confirm" onChange={handleChange} />
+            <input
+              type="checkbox"
+              name="confirm"
+              checked={formData.confirm}
+              onChange={handleChange}
+            />
             <label>Надіслати підтвердження</label>
           </CheckboxRow>
           <SubmitRow>
@@ -153,6 +233,7 @@ const Registration = () => {
           </SubmitRow>
         </form>
       </FormContainer>
+      </SectionWrapper>
       <Footer />
     </>
   );

@@ -15,7 +15,7 @@ export default function Footer() {
           <p>01015, м. Фантастичне, вул. Прекрасна, 73</p>
           <p>+38 0** *** ** **</p>
           <p>************@gmail.com</p>
-          <a href="#">youtube link</a>
+          <a href="https://www.youtube.com/watch?v=4VHcq207OTI">youtube link</a>
   
           <div className="subscribe">
             <input type="email" placeholder="Ваш email" />

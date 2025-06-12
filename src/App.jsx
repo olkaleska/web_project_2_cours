@@ -7,6 +7,7 @@ import Contacts from "./pages/Contacts";
 import News from './pages/News';
 import Registration from './pages/Registration';
 import OnlineArchive from "./pages/OnlineArchive";
+import ArticlePage from "./pages/ArticlePage";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -19,6 +20,7 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<News />} />
+        <Route path="/articles/:id" element={<ArticlePage />} />
         <Route path="/archive" element={<OnlineArchive />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/registration" element={<Registration />} />

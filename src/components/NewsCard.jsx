@@ -1,20 +1,21 @@
-// import React from 'react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./styles/NewsCard.css";
 
-// export default function NewsCard({ title }) {
-//   return (
-//     <div className="card">
-//       <p>{title}</p>
-//     </div>
-//   );
-// }
+export default function NewsCard({ title, image, id }) {
+  const navigate = useNavigate();
 
-import React from 'react';
-import './styles/NewsCard.css'; // Стилі саме для NewsCard
+  const handleClick = () => {
+    navigate(`/articles/${id}`);
+  };
 
-export default function NewsCard({ title }) {
   return (
-    <div className="box split tall">
-      <div className="top"></div>
+    <div className="box split tall" onClick={handleClick} style={{ cursor: "pointer" }}>
+      <div className="top" style={{
+        backgroundImage: `url(${image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }}></div>
       <div className="bottom">{title}</div>
     </div>
   );
