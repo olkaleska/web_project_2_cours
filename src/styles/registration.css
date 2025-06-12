@@ -1,0 +1,109 @@
+body {
+    font-family: Georgia, serif;
+    background-color: #b89c7d;
+    margin: 0;
+    padding: 0px;
+    display: flex;
+  flex-direction: column;
+    min-height: 100vh;
+  font-size: 23px;
+  }
+  
+  .form-title {
+    
+    background-color: #3b2a17;
+    color: rgb(213, 28, 28);
+    padding: 10px 50px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 40px;
+    border-radius: 45px;
+    font-size: 26px;
+  }
+  
+  .form-container {
+    /* flex: 1; */
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+    background-color: #9b8364;
+    border-radius: 10px;
+    padding: 80px 150px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .registration-form .form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 22px;
+  }
+  
+  .registration-form .form-row label {
+    width: 240px;
+    font-weight: bold;
+    color: #2c1d0d;
+  }
+
+  .registration-form .form-row input[type="time"],
+  .registration-form .form-row input[type="date"],
+  .registration-form .form-row input[type="text"],
+  .registration-form .form-row input[type="email"] {
+    flex: 1;
+    padding: 5px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 16px;
+    color: #2c1d0d;
+  }
+  
+  .books-row {
+    display: flex;
+    align-items: center;
+    gap: 0px; /* відстань між полем і кнопкою */
+  }
+
+  .books-row .search-btn {
+    margin-left: 0;
+    background-color: #3b2a17;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .checkbox-row {
+    align-items: center;
+    padding: 10px 230px;
+  }
+  
+  .checkbox-row input[type="checkbox"] {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #2c1d0d;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .checkbox-row input[type="checkbox"]:checked {
+    background-color: #3b2a17;
+  }
+  
+  
+  .submit-row {
+    justify-content: flex-end;
+  }
+  
+  .submit-btn {
+    background-color: #3b2a17;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

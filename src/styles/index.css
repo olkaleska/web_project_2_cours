@@ -1,0 +1,88 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Noto Serif Display', serif;
+  background-color: #b39c7f;
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1;
+  padding: 40px 20px;
+}
+
+/* Головний Grid */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 140px;
+  margin: 0 auto;
+}
+
+/* Колонка */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Заголовки колонок */
+.column h4 {
+  text-align: center;
+  color: #4a3a23;
+  font-weight: normal;
+}
+
+/* Новинна картка */
+.box {
+  width: 100%;
+  min-height: 140px;
+  background-color: #4a3a23;
+  color: white;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Довша картка */
+.tall {
+  min-height: 260px;
+}
+
+/* Поділена на 2 */
+.split {
+  flex-direction: column;
+  padding: 0;
+  color: #4a3a23;
+  background: transparent;
+}
+
+.split .top {
+  background-color: #4a3a23;
+  height: 75%;
+  width: 100%;
+}
+
+.split .bottom {
+  background-color: white;
+  height: 25%;
+  width: 100%;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

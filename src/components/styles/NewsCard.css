@@ -1,0 +1,43 @@
+.box {
+    width: 340px;
+    height: 340px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    background-color: #4a3a23;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
+  .split {
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+    color: #4a3a23;
+  }
+  
+  .tall {
+    height: 470px;
+  }
+  
+  .split .top {
+    background-color: #4a3a23;
+    height: 75%;
+    width: 100%;
+  }
+  
+  .split .bottom {
+    background-color: white;
+    height: 30%;
+    width: 100%;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

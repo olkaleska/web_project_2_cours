@@ -1,0 +1,21 @@
+.news-page {
+    padding: 40px;
+    background-color: #b39c7f;
+    min-height: 100vh;
+  }
+  
+  .news-page h2 {
+    text-align: center;
+    color: #4a3a23;
+    font-family: 'Noto Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
